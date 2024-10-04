@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="wrapper">
+
+        <div class="card">
+            <div class="card-main">
+                <section class="card__header">
+                    <div class="card__user">
+                        <figure class="card__user-img">
+                            <img src="./assets/img/face.png" alt="user">
+                        </figure>
+                        <div class="card__wrapper">
+                            <span class="card__user-name">Владимир Вуйтек</span>
+                            <span class="card__user-info">Статистика за последние 30 дней</span>
+
+                            <div class="card__stats--mobile js-container-mobile"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="card__profit">
+                        <span class="card__user-info--mobile">30 дней</span>
+                        <div class="card__stats-item card__stats-item--green">
+                            +22 820
+                        </div>
+                    </div>
+
+                    <div class="card__stats js-container"></div>
+                </section>
+
+                <section id="cardBody" class="card__body gradient">
+                    <div data-collapsed="true" class="card__body-text">
+                        <p>
+                            В Кубке страны команда Унаи Эмери бессовестно размялась на «Виктории» из Ла-Коруньи (8:0). При этом серьёзные соперники: «Севилья», «Барселона» (даже кризисная) и «МЮ» (ещё более кризисный) — били «Вильярреал». ЛЧ не турнир для Эмери. Он гроссмейстер убогой ЛЕ.
+                            Поэтому у «Аталанты» есть шансы. Ей необходимо играть лишь на победу. Только выигрыш выводит её в плей-офф ЛЧ. А поражение в комплекте с победой «Янг Бойз» над «МЮ» оставляет бергамасков без еврокубковой весны. Гасперини вполне по силам одолеть команду Эмери. «Аталанта» уже обыгрывала недавно «Юве» и «Наполи». Поставлю на победу итальянского клуба.
+                        </p>
+                    </div>
+
+                    <figure id="showMore" class="card__body-button">
+                        <img 
+                            src="./assets/icons/down.svg" 
+                            alt="shevron"
+                            class="card__body-shevron"
+                        >
+                    </figure>
+                </section>
+            </div>
+    
+            <section class="card-footer">
+                <div class="card-footer__container">
+                    <div>
+                        <div class="card-footer__title">ПРОГНОЗ</div>
+                        <div class="card-footer__info">Штрафное время: тотал меньше 16,5</div>
+                    </div>
+    
+                    <div class="card-footer__cta">
+                        <div class="card-footer__koef">
+                            <figure class="card-footer__img">
+                                <img src="./assets/icons/1Хstavka.svg" alt="1Хstavka">
+                            </figure>
+                            
+                            <div>
+                                <div class="card-footer__text"></div>
+                                <div class="card-footer__number">3.20</div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <button class="card-footer__btn">Сделать ставку</button>
+            </section>
+        </div>
+
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,410 @@
+$screen-size: 745px;
+
+@font-face {
+    font-family: "FuturaPT-Demi";
+    src: url("./assets/fonts/FuturaPT-Demi.woff") format("woff");
+}
+
+@font-face {
+    font-family: "ProximaNova-Regular";
+    src: url("./assets/fonts/ProximaNova-Regular.woff") format("woff");
+}
+
+@font-face {
+    font-family: "ProximaNova-Semibold";
+    src: url("./assets/fonts/ProximaNova-Semibold.woff") format("woff");
+}
+
+@font-face {
+    font-family: "WixMadeforText-SemiBold";
+    src: url("./assets/fonts/WixMadeforText-SemiBold.woff") format("woff");
+}
+
+body {
+    box-sizing: border-box;
+    background-color: rgb(113, 113, 113);
+    padding: 0;
+    margin: 0;
+}
+
+figure, p {
+    margin: 0;
+}
+
+.wrapper {
+    margin: 80px auto 0;
+    padding: 0 14px;
+    width: fit-content;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 768px;
+    color: rgba(black, 0.8);
+
+    &-main {
+        padding: 24px;
+
+        @media (max-width: $screen-size) {
+            padding: 16px;
+        }
+    }
+    
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 40px;
+        position: relative;
+
+        &:after {
+            content: "";
+            width: 100%;
+            height: 1px;
+            position: absolute;
+            bottom: -20px; 
+            background-color: rgba(black, 0.1);
+
+            @media (max-width: $screen-size) {
+                bottom: -16px; 
+            }
+        }
+
+        @media (max-width: $screen-size) {
+            margin-bottom: 32px;
+        }
+    }
+
+    &__user {
+        display: flex;
+        align-items: center;
+    }
+
+    &__user-img {
+        border-radius: 50%;
+        overflow: hidden;
+        margin-right: 12px;
+        height: 32px;
+        width: 32px;
+        min-width: 32px;
+        min-height: 32px;
+
+        & img {
+            height: 32px;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    &__user-info {
+        font-family: "ProximaNova-Regular";
+        font-size: 14px;
+        line-height: 16px;
+        color: rgba(black, 0.5);
+
+        &--mobile {
+            font-family: "ProximaNova-Regular";
+            font-size: 14px;
+            line-height: 16px;
+            color: rgba(black, 0.5);
+            display: none;
+
+            @media (max-width: $screen-size) {
+                display: block;
+            }
+        }
+
+        @media (max-width: $screen-size) {
+            display: none;
+        }
+    }
+
+    &__user-name {
+        font-family: "ProximaNova-Semibold";
+        font-size: 14px;
+        line-height: 16px;
+    }
+
+    &__profit {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+
+        @media (max-width: $screen-size) {
+            display: flex;
+        }
+    }
+
+    &__stats {
+        font-size: 14px;
+        width: 100%;
+        max-width: 368px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        &--mobile {
+            font-size: 14px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+
+            @media (max-width: $screen-size) {
+                gap: 4px;
+            }
+        }
+
+        @media (max-width: $screen-size) {
+            display: none;
+        }
+    }
+
+    &__stats-item {
+        position: relative;
+        line-height: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        width: 100%;
+        max-width: 64px;
+        font-family: "ProximaNova-Semibold";
+
+        & span {
+            margin-left: 4px;
+            color: rgba(black, 0.2);
+        }
+
+        @media (max-width: $screen-size) {
+            gap: 0;
+            width: initial;
+            flex-direction: row;
+        }
+
+        &--green {
+            color: #62B435;
+        }
+
+        &--grey {
+            color: rgba(black, 0.4);
+        }
+
+        &--red {
+            color: #F64747;
+        }
+
+        &--default {
+            font-family: "ProximaNova-Regular";
+
+            .card__stats-info {
+                font-family: "ProximaNova-Semibold";
+                color: #62B435;
+            }
+        }
+    }
+
+    &__stats-info {
+        
+        &:before {
+            content: "";
+            width: 100%;
+            height: 1px;
+            position: absolute;
+            top: 50%; 
+            background-color: rgba(black, 0.1);
+        }
+    }
+
+    &__body {
+        position: relative;
+
+        &.open .card__body-shevron {
+            transform: rotate(180deg);
+        }
+
+        &.gradient:before {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0) 16.67%, #FFFFFF 100%);
+            content: '';
+            z-index: 10;
+            width: 100%;
+            height: 16.67%;
+            bottom: 0;
+            display: block;
+            position: absolute;
+            transition: all .3s ease-out;
+        }
+    }
+
+    &__body-button {
+        background-color: #fff;
+        height: 40px;
+        width: 40px;
+        box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.08);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        position: absolute;
+        z-index: 1;
+        left: 50%;
+        bottom: -40px;
+        transform: translate(-50%, 0);
+    }
+
+    &__body-shevron {
+        transform: rotate(0deg);
+        transition: all .3s ease-out;
+    }
+
+    &__body-text {
+        font-family: "ProximaNova-Regular";
+        font-size: 16px;
+        color: rgba(black, 0.6);
+        line-height: 24px;
+
+        overflow: hidden;
+        transition: height 0.3s ease-out;
+        height: 120px;
+        
+        // overflow: hidden;
+        // grid-row: 1 / span 2;
+        // height:120px;
+        // transition: height 0.3s ease-out;
+
+        & p {
+            text-align: left;
+        }
+    }
+
+    &-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 24px;
+        background-color: #F0F1F2;
+        margin-bottom: 16px;
+        position: relative;
+
+        @media (max-width: $screen-size) {
+            flex-direction: column;
+            margin-bottom: 12px;
+            padding: 16px;
+        }
+
+        &:before {
+            content: '';
+            width: 0;
+            position: absolute;
+            border: 2px solid #3498DB;
+            top: 0;
+            bottom: 0;
+            left: 0;
+        }
+
+        &__container {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-right: 16px;
+    
+            @media (max-width: $screen-size) {
+                margin-right: 0;
+                margin-bottom: 16px;
+            }
+        }
+        &__title {
+            font-family: "ProximaNova-Semibold";
+            font-size: 12px;
+            color: rgba(black, 0.4);
+            margin-bottom: 8px;
+            line-height: 14px;
+        }
+    
+        &__info {
+            font-family: "ProximaNova-Semibold";
+            font-size: 18px;
+            line-height: 20px;
+    
+            @media (max-width: $screen-size) {
+                line-height: 18px;
+            }
+        }
+
+        &__koef {
+            display: flex;
+            align-items: center;
+            margin-right: 16px;
+    
+            @media (max-width: $screen-size) {
+                margin-right: 0;
+                margin-left: 12px;
+            }
+        }
+    
+        &__img {
+            height: 32px;
+            width: 32px;
+            margin-right: 12px;
+    
+            @media (max-width: $screen-size) {
+                margin-right: 8px;
+            }
+        }
+
+        &__text {
+            &:before {
+                display: block;
+                content: 'Коэффициент';
+                font-family: "ProximaNova-Regular";
+                font-size: 12px;
+                line-height: 14px;
+                height: 14px;
+    
+                @media (max-width: $screen-size) {
+                    content: 'Кэф';
+                }
+            }
+        }
+
+        &__number {
+            font-family: "FuturaPT-Demi";
+            font-size: 20px;
+            line-height: 24px;
+    
+            @media (max-width: $screen-size) {
+                font-size: 18px;
+                line-height: 22px;
+            }
+        }
+    
+        &__cta {
+            display: flex;
+            align-items: center;
+        }
+
+        &__btn {
+            background-color: #3498DB;
+            border: none;
+            color: #fff;
+            padding: 12px 17.5px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            max-width: 140px;
+    
+            @media (max-width: $screen-size) {
+                max-width: 100%;
+            }
+        }
+    }
+}

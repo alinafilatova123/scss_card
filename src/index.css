@@ -1,0 +1,375 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "FuturaPT-Demi";
+  src: url("./assets/fonts/FuturaPT-Demi.woff") format("woff");
+}
+@font-face {
+  font-family: "ProximaNova-Regular";
+  src: url("./assets/fonts/ProximaNova-Regular.woff") format("woff");
+}
+@font-face {
+  font-family: "ProximaNova-Semibold";
+  src: url("./assets/fonts/ProximaNova-Semibold.woff") format("woff");
+}
+@font-face {
+  font-family: "WixMadeforText-SemiBold";
+  src: url("./assets/fonts/WixMadeforText-SemiBold.woff") format("woff");
+}
+body {
+  box-sizing: border-box;
+  background-color: rgb(113, 113, 113);
+  padding: 0;
+  margin: 0;
+}
+
+figure, p {
+  margin: 0;
+}
+
+.wrapper {
+  margin: 80px auto 0;
+  padding: 0 14px;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 768px;
+  color: rgba(0, 0, 0, 0.8);
+}
+.card-main {
+  padding: 24px;
+}
+@media (max-width: 745px) {
+  .card-main {
+    padding: 16px;
+  }
+}
+.card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  position: relative;
+}
+.card__header:after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  bottom: -20px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+@media (max-width: 745px) {
+  .card__header:after {
+    bottom: -16px;
+  }
+}
+@media (max-width: 745px) {
+  .card__header {
+    margin-bottom: 32px;
+  }
+}
+.card__user {
+  display: flex;
+  align-items: center;
+}
+.card__user-img {
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 12px;
+  height: 32px;
+  width: 32px;
+  min-width: 32px;
+  min-height: 32px;
+}
+.card__user-img img {
+  height: 32px;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.card__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.card__user-info {
+  font-family: "ProximaNova-Regular";
+  font-size: 14px;
+  line-height: 16px;
+  color: rgba(0, 0, 0, 0.5);
+}
+.card__user-info--mobile {
+  font-family: "ProximaNova-Regular";
+  font-size: 14px;
+  line-height: 16px;
+  color: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+@media (max-width: 745px) {
+  .card__user-info--mobile {
+    display: block;
+  }
+}
+@media (max-width: 745px) {
+  .card__user-info {
+    display: none;
+  }
+}
+.card__user-name {
+  font-family: "ProximaNova-Semibold";
+  font-size: 14px;
+  line-height: 16px;
+}
+.card__profit {
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+}
+@media (max-width: 745px) {
+  .card__profit {
+    display: flex;
+  }
+}
+.card__stats {
+  font-size: 14px;
+  width: 100%;
+  max-width: 368px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.card__stats--mobile {
+  font-size: 14px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 745px) {
+  .card__stats--mobile {
+    gap: 4px;
+  }
+}
+@media (max-width: 745px) {
+  .card__stats {
+    display: none;
+  }
+}
+.card__stats-item {
+  position: relative;
+  line-height: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  max-width: 64px;
+  font-family: "ProximaNova-Semibold";
+}
+.card__stats-item span {
+  margin-left: 4px;
+  color: rgba(0, 0, 0, 0.2);
+}
+@media (max-width: 745px) {
+  .card__stats-item {
+    gap: 0;
+    width: initial;
+    flex-direction: row;
+  }
+}
+.card__stats-item--green {
+  color: #62B435;
+}
+.card__stats-item--grey {
+  color: rgba(0, 0, 0, 0.4);
+}
+.card__stats-item--red {
+  color: #F64747;
+}
+.card__stats-item--default {
+  font-family: "ProximaNova-Regular";
+}
+.card__stats-item--default .card__stats-info {
+  font-family: "ProximaNova-Semibold";
+  color: #62B435;
+}
+.card__stats-info:before {
+  content: "";
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  top: 50%;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.card__body {
+  position: relative;
+}
+.card__body.open .card__body-shevron {
+  transform: rotate(180deg);
+}
+.card__body.gradient:before {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 16.67%, #FFFFFF 100%);
+  content: "";
+  z-index: 10;
+  width: 100%;
+  height: 16.67%;
+  bottom: 0;
+  display: block;
+  position: absolute;
+  transition: all 0.3s ease-out;
+}
+.card__body-button {
+  background-color: #fff;
+  height: 40px;
+  width: 40px;
+  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  bottom: -40px;
+  transform: translate(-50%, 0);
+}
+.card__body-shevron {
+  transform: rotate(0deg);
+  transition: all 0.3s ease-out;
+}
+.card__body-text {
+  font-family: "ProximaNova-Regular";
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.6);
+  line-height: 24px;
+  overflow: hidden;
+  transition: height 0.3s ease-out;
+  height: 120px;
+}
+.card__body-text p {
+  text-align: left;
+}
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px;
+  background-color: #F0F1F2;
+  margin-bottom: 16px;
+  position: relative;
+}
+@media (max-width: 745px) {
+  .card-footer {
+    flex-direction: column;
+    margin-bottom: 12px;
+    padding: 16px;
+  }
+}
+.card-footer:before {
+  content: "";
+  width: 0;
+  position: absolute;
+  border: 2px solid #3498DB;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+.card-footer__container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 16px;
+}
+@media (max-width: 745px) {
+  .card-footer__container {
+    margin-right: 0;
+    margin-bottom: 16px;
+  }
+}
+.card-footer__title {
+  font-family: "ProximaNova-Semibold";
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.4);
+  margin-bottom: 8px;
+  line-height: 14px;
+}
+.card-footer__info {
+  font-family: "ProximaNova-Semibold";
+  font-size: 18px;
+  line-height: 20px;
+}
+@media (max-width: 745px) {
+  .card-footer__info {
+    line-height: 18px;
+  }
+}
+.card-footer__koef {
+  display: flex;
+  align-items: center;
+  margin-right: 16px;
+}
+@media (max-width: 745px) {
+  .card-footer__koef {
+    margin-right: 0;
+    margin-left: 12px;
+  }
+}
+.card-footer__img {
+  height: 32px;
+  width: 32px;
+  margin-right: 12px;
+}
+@media (max-width: 745px) {
+  .card-footer__img {
+    margin-right: 8px;
+  }
+}
+.card-footer__text:before {
+  display: block;
+  content: "Коэффициент";
+  font-family: "ProximaNova-Regular";
+  font-size: 12px;
+  line-height: 14px;
+  height: 14px;
+}
+@media (max-width: 745px) {
+  .card-footer__text:before {
+    content: "Кэф";
+  }
+}
+.card-footer__number {
+  font-family: "FuturaPT-Demi";
+  font-size: 20px;
+  line-height: 24px;
+}
+@media (max-width: 745px) {
+  .card-footer__number {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
+.card-footer__cta {
+  display: flex;
+  align-items: center;
+}
+.card-footer__btn {
+  background-color: #3498DB;
+  border: none;
+  color: #fff;
+  padding: 12px 17.5px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  max-width: 140px;
+}
+@media (max-width: 745px) {
+  .card-footer__btn {
+    max-width: 100%;
+  }
+}/*# sourceMappingURL=index.css.map */
